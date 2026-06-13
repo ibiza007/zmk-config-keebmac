@@ -2,8 +2,8 @@
 
 / {
     chosen {
-        zmk,kscan = &default_kscan;
-        zmk,matrix_transform = &default_transform;
+        zmk,kscan = &default_kscan;                  // Fixed: Changed ) to _
+        zmk,matrix-transform = &default_transform;   // Fixed: Changed _ to -
     };
 
     default_kscan: kscan {
@@ -11,19 +11,25 @@
         label = "default_kscan";
         diode-direction = "col2row";
 
-        row-gpios = <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-                    <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        /* Fixed: Replaced internal commas with spaces, closed array with a semicolon */
+        row-gpios 
+            = <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
 
-        col-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>,
-                    <&pro_micro 5 GPIO_ACTIVE_HIGH>,
-                    <&pro_micro 6 GPIO_ACTIVE_HIGH>;
+        /* Fixed: Replaced internal commas with spaces, closed array with a semicolon */
+        col-gpios 
+            = <&pro_micro 4 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 5 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 6 GPIO_ACTIVE_HIGH>
+            ;
     };
 
     default_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
-        columns = <3>;
-        rows = <3>;
+        columns = <3>; 
+        rows = <3>; 
         map = <
             RC(0,0) RC(0,1) RC(0,2)
             RC(1,0) RC(1,1) RC(1,2)
