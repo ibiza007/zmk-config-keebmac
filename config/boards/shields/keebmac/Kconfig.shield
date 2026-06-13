@@ -1,2 +1,2 @@
-config SHIELD_keebmac
-  def_bool $(shields_list_contains, keebmac)
+config SHIELD_KEEBMAC
+    def_bool $(shields_list_contains,keebmac)
