@@ -1,5 +1,5 @@
-if SHIELD_keebmac
+if SHIELD_KEEBMAC
 
   config ZMK_KEYBOARD_NAME
-    default "keebmac"
+    default "KEEBMAC"
   endif
